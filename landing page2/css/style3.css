@@ -1,0 +1,125 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:300,700italic);
+
+/*ease rendering animations*/
+@keyframes ease-in-top {
+	0% {
+		opacity: 0;
+		transform: translateY(-80px)
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0)
+	}
+}
+@keyframes ease-in-left {
+	0% {
+		opacity: 0;
+		transform: translateX(-80px)
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0)
+	}
+}
+@keyframes ease-in-right {
+	0% {
+		opacity: 0;
+		transform: translateX(80px)
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0)
+	}
+}
+
+body {
+	color: gray;
+	color: #757575;
+	font: 300 14px/1 "lato", sans-serif;
+	margin: 50px 0;
+	text-align: center;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+}
+/*Level Heading utility classes*/
+.wrap--title-main { 	font: 30px/1.2 "Comic Sans", cursive }
+.wrap--title-2 { font: 700 italic 21px/1.2 'lato', sans-serif }
+
+.wrap {
+	background: #f9f9f9;
+	box-shadow: 0 0 2px #f5f5f5, 0 3px 0 -1px rgba(255, 255, 255, 0.5) inset, 0 0 0 1px #f2f2f2;
+	margin: 0 auto;
+	padding: 0 0 10px;
+	text-align: left;
+	width: 100%
+}
+.wrap__title {
+	text-align: center;
+	width: 100%
+}
+.wrap__title .wrap--title-main {
+	animation: ease-in-top 1s 1s 1 ease-out forwards;
+	color: #666;
+	line-height: 1.5em;
+	opacity: 0;
+	z-index: 100
+}
+.wrap__desc {
+	margin: 1% 0
+}
+.wrap__desc .wrap__sec {
+	background: #fff;
+	box-shadow: 0 0 0 1px #eee;
+	display: inline-block;
+	margin: 0 0.2% 1%;
+	opacity: 0;
+	vertical-align: top
+}
+.wrap__desc .wrap__sec:nth-child(3n+1) {
+	animation: ease-in-left 1s 3s 1 ease-out forwards
+}
+.wrap__desc .wrap__sec:nth-child(3n+2) {
+	animation: ease-in-right 1s 3s 1 ease-out forwards
+}
+.wrap__desc .wrap__sec:nth-child(3n+3) {
+	animation: ease-in-top 1s 3s 1 ease-out forwards
+}
+
+/*For two column sections*/
+.wrap__desc .wrap__sec.wrap--grid-2 {
+	width: 49%
+}
+/*For full width section, every 3rd element*/
+.wrap__desc .wrap__sec.wrap--grid-2:nth-child(3n) {
+	display: block;
+	width: 98.7%
+}
+.wrap__sec--title {
+	width: 100%
+}
+.wrap--title-2.wrap__sec--title {
+	color: #656565;
+	font-weight: bold;
+	line-height: 2em;
+	text-align: center
+}
+.wrap__desc .sec__desc {
+	padding: 0 3% 1%
+}
+.sec__desc p {
+	font: 300 16px/1.2 "lato", sans-serif;
+	text-align: justify
+}
+
+/*@Media for responsive layout*/
+@media all and (max-width: 800px) {
+	body { font: 100%/1 "lato-light", sans-serif }
+	.wrap { width: 98% }
+  .wrap--title-main { font: 130%/3 Cursive }
+  .wrap__desc .wrap__sec { padding: 0 0.8% }
+	.wrap__desc .wrap__sec.wrap--grid-2	{
+		display: block;
+		width: 98% !important
+	}
+	
+}
